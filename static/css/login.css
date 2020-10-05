@@ -1,0 +1,166 @@
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html{
+    height: 100%;
+}
+
+body.login{
+    background-image: url(../images/law.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
+body.home{
+    background: linear-gradient(to bottom, rgba(87, 54, 97, 0.7) 0%, rgba(47, 78, 74, 0.7) 100%), url("../images/law.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
+
+.container{
+    height: 100%;
+    align-content: center;
+}
+
+.header-text{
+    padding-top: 20px;
+    color: red;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    font-family: Courier, "Courier New", monospace;
+}
+
+.card{
+    height: 420px;
+    margin-top: 90px;
+    width: 450px;
+    background-color: rgba(0,0,0.7,0.5) !important;
+}
+
+.logo1, .logo2{
+    border-radius: 50%;
+    margin-top: 110px;
+    
+}
+
+
+
+.social_icon span{
+    font-size: 60px;
+    margin-left: 10px;
+    color: #FFC312;
+    }
+    
+.social_icon span:hover{
+    color: white;
+    cursor: pointer;
+    }
+    
+.card-header h3{
+    color: white;
+    text-align: center;
+}
+    
+.social_icon{
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+
+
+.input-group-prepend span{
+    width: 50px;
+    background-color: #FFC312;
+    color: black;
+    border:0 !important;
+}
+
+    
+input:focus{
+    outline: 0 0 0 0  !important;
+    box-shadow: 0 0 0 0 !important;
+}
+    
+.remember{
+    color: white;
+    }
+    
+.remember input
+    {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+    }
+    
+.login_btn{
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+}
+    
+.login_btn:hover{
+    color: black;
+    background-color: white;
+}
+    
+.links{
+    color: white;
+}
+    
+.links a{
+    margin-left: 4px;
+}
+
+.pix_btn{
+    color: black;
+    background-color: rgb(182, 30, 30);
+    font-family: Courier, "Courier New", monospace;
+    font-size: 25px;
+    font-weight: 700;
+    border-radius: 12px;
+}
+
+.pix_btn:hover{
+    color: black;
+    background-color: rgb(202, 162, 162);
+    
+}
+
+.pix2_btn{
+    color: black;
+    background-color: rgb(182, 30, 30);
+    font-family: Courier, "Courier New", monospace;
+    font-size: 25px;
+    font-weight: 700;
+    border-radius: 12px;
+    width: 175px
+}
+
+.pix2_btn:hover{
+    color: black;
+    background-color: rgb(202, 162, 162);
+    
+}
+
+.navbar a:focus {
+    background: blueviolet;
+}
+
+
+
+
+
+
+
+
+
+
+
+

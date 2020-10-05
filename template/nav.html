@@ -1,0 +1,23 @@
+{% load static %}
+
+<nav class="navbar navbar-dark bg-dark">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logbook_app:home' %}">
+          <i class="fa fa-fw fa-home" style="color: red;"></i>&nbsp; Home</a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logbook_app:add_logbook' %}">
+            <i class="far fa-edit" style="color: red;"></i>&nbsp; Input Data</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logbook_app:view_logbook' %}">
+              <i class="fas fa-eye" style="color: red;"></i>&nbsp; View Data</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logbook_app:login' %}">
+            <i class="fa fa-sign-out-alt" style="color: red;"></i>&nbsp; Log Out</a>
+        </li>
+      </ul>
+</nav>

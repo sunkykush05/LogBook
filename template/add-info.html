@@ -1,0 +1,240 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+          Add Info
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/data.css' %}">
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" 
+    crossorigin="anonymous">    
+    
+</head>
+
+<body class="data">
+
+{% block content %}
+
+{% include 'navnew.html' %}
+
+    <div class="container">
+          
+      <div class="row">
+        <div class="col-lg-1"></div>
+  
+        <div class="col-lg-10">
+
+          {% if messages %}
+          {% for message in messages %}
+          
+        <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+          {{ message }}
+
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        
+        </div>
+          {% endfor %}
+          {% endif %}
+
+          <div id="ui" class="mb-4">
+            <h1 class="text-center">LAWYERS</h1>
+
+            <form method="POST">
+              {% csrf_token %}
+              {{ attn.non_field_errors }}
+              
+              {{ invt.file_no.errors }}
+              <label>File No</label>
+              {{ attn.file_no }}
+  
+              <br>
+  
+              <div class="row">
+                <div class="col-lg-3">
+                  {{ attn.file_no.errors }}
+                  <label>Case No</label>
+                   {{ attn.case_no }}
+                </div>
+  
+                <div class="col-lg-3">
+                  {{ attn.case_name.errors }}
+                  <label>Case Name</label>
+                  {{ attn.case_name }}
+                </div>
+  
+                <div class="col-lg-3">
+                  {{ attn.court.errors }}
+                  <label>Court</label>
+                  {{ attn.court }}
+                </div>
+
+                <div class="col-lg-3">
+                  {{ attn.agency.errors }}
+                  <label>Agency</label>
+                  {{ attn.agency }}
+                </div>
+  
+              </div>
+  
+              <br>
+  
+              <div class="row">
+                <div class="col-lg-3">
+                  {{ attn.no_defendant_male.errors }}
+                  <label>Defendant Male</label>
+                  {{ attn.no_defendant_male }}
+                </div>
+  
+                <div class="col-lg-3">
+                  {{ attn.no_defendant_female.errors }}
+                  <label>Defendant Female</label>
+                  {{ attn.no_defendant_female }}
+                </div>
+  
+                <div class="col-lg-3">
+                  {{ attn.no_underage_male.errors }}
+                  <label>Male Underage Suspect</label>
+                  {{ attn.no_underage_male }}
+                </div>
+  
+                <div class="col-lg-3">
+                  {{ attn.no_underage_female.errors }}
+                  <label>Female Underage Suspect</label>
+                  {{ attn.no_underage_female }}
+                </div>
+  
+              </div>
+  
+              <br>
+  
+              <div class="row">
+                <div class="col-lg-4">
+                  {{ attn.no_pwds_male.errors }}
+                  <label>PWDS Female</label>
+                  {{ attn.no_pwds_male }}
+                </div>
+  
+                <div class="col-lg-4 ">
+                  {{ attn.no_pwds_female.errors }}
+                  <label>PWDS Female</label>
+                    {{ attn.no_pwds_female }}
+                </div>
+
+                <div class="col-lg-4">
+                  {{ attn.counsel_name.errors }}
+                  <label>Counsel Name</label>
+                  {{ attn.counsel_name }}
+                </div>
+              </div>
+  
+              <br>
+  
+              <div class="row">
+  
+                <div class="col-lg-5">
+                  {{ attn.counsel_telephone.errors }}
+                  <label>Counsel Telephone</label>
+                  {{ attn.counsel_telephone }}
+                </div>
+  
+                <div class="col-lg-3">
+                  {{ attn.adjourn_date.errors }}
+                  <label>Adjourn Date</label>
+                  {{ attn.adjourn_date }}
+                </div>
+
+                <div class="col-lg-4">
+                  {{ attn.reason_for_adjournment.errors }}
+                  <label>Reason For Adjournment</label>
+                  {{ attn.reason_for_adjournment }}
+                </div>
+  
+              </div>
+  
+              <br>
+  
+              <div class="row">
+                
+  
+                <div class="col-lg-6">
+                  {{ attn.stage_of_proceedings.errors }}
+                  <label>Stage of Proceedings</label>
+                  {{ attn.stage_of_proceedings }}
+                </div>
+  
+                <div class="col-lg-3">
+                  {{ attn.is_defendant_in_custody.errors }}
+                  <label>Defendant in Custody</label>
+                  {{ attn.is_defendant_in_custody }}
+                </div>
+  
+                <div class="col-lg-3">
+                  {{ attn.has_bail_been_revoked.errors }}
+                  <label>Bail Revoked</label>
+                  {{ attn.has_bail_been_revoked }}
+                </div>
+  
+              </div>
+              
+  
+              <br>
+  
+              <div class="row">
+                <div class="col-lg-3">
+                  {{ attn.disposal.errors }}
+                  <label>Disposal</label>
+                  {{ attn.disposal }}
+                </div>
+  
+                <div class="col-lg-3">
+                  {{ attn.lead_counsel.errors }}
+                  <label>Lead Counsel</label>
+                  {{ attn.lead_counsel }}
+                </div>
+  
+                <div class="col-lg-3">
+                  {{ attn.entry_made_by.errors }}
+                  <label>Entry Made By</label>
+                  {{ attn.entry_made_by }}
+                </div>
+  
+                <div class="col-lg-3">
+                  {{ attn.entry_updated_by.errors }}
+                  <label>Entry Updated By</label>
+                  {{ attn.entry_updated_by }}
+                </div>
+              </div>
+  
+              <br>
+              <input type="submit" name="submit" class="btn btn-warning btn-block btn-lg">
+            </form>
+  
+          </div>
+        </div>
+  
+        <div class="col-lg-1"></div>
+      </div> 
+    </div>
+    
+{% endblock %}
+
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+</body>
+</html>

@@ -1,0 +1,130 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+          View Info
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/data.css' %}">
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" 
+    crossorigin="anonymous">    
+    
+</head>
+
+<body class="data">
+
+{% block content %}
+
+{% include 'navnew.html' %}
+
+    <div class="container">
+            <h1>{{title}}</h1>
+            
+            <center>
+              <form action= "" method="POST" action="" class="col-6">
+                {% csrf_token %}
+              <table>
+                {{ form|crispy }}
+              </table>
+              <input class= "btn btn-warning mb-3" type="submit" value="Search">
+            </form>
+            </center>
+            
+
+            <div id="table-scroll" class="table-scroll mb-4">
+              <table id="main-table" class="main-table">
+                <thead>
+                  <tr>
+                    <th scope="col">ENTRY_DATE</th>
+                    <th scope="col">UPDATED_DATE</th>
+                    <th scope="col">FILE_NO</th>
+                    <th scope="col">CASE_NO</th>
+                    <th scope="col">CASE_NAME</th>
+                    <th scope="col">COURT</th>
+                    <th scope="col">AGENCY</th>
+                    <th scope="col">DEFENDANT MALE</th>
+                    <th scope="col">DEFENDANT FEMALE</th>
+                    <th scope="col">UNDERAGE_MALE</th>
+                    <th scope="col">UNDERAGE_FEMALE</th>
+                    <th scope="col">PWDS_MALE</th>
+                    <th scope="col">PWDS_FEMALE</th>
+                    <th scope="col">COUNSEL_NAME</th>
+                    <th scope="col">COUNSEL TELEPHONE</th>
+                    <th scope="col">ADJOURN DATE</th>
+                    <th scope="col">ADJN. REASON</th>
+                    <th scope="col">PROCEEDINGS</th>
+                    <th scope="col">DEFEDANT CUSTODY</th>
+                    <th scope="col">BAIL REVOKED</th>
+                    <th scope="col">DISPOSAL</th>
+                    <th scope="col">ENTRY OFFICER</th>
+                    <th scope="col">UPDATED BY</th>
+                    <th scope="col">DELETE</th>
+                  </tr>
+                </thead>
+
+                {% for instance in queryset %}
+                <tbody>
+                  <tr>
+                    <th>{{instance.entry_date}}</th>
+                      <td>{{instance.updated_date}}</td>
+                      <td><a href="{% url 'logbook_app:edit_info' id=instance.id %}">{{instance.file_no}}</td>
+                        <td>{{instance.case_no}}</td>
+                        <td>{{instance.case_name}}</td>
+                        <td>{{instance.court}}</td>
+                        <td>{{instance.agency}}</td>
+                        <td>{{instance.no_defendant_male}}</td>
+                        <td>{{instance.no_defendant_female}}</td>
+                        <td>{{instance.no_underage_male}}</td>
+                        <td>{{instance.no_underage_female}}</td>
+                        <td>{{instance.no_pwds_male}}</td>
+                        <td>{{instance.no_pwds_female}}</td>
+
+                        <td>{{instance.counsel_name}}</td>
+                        <td>{{instance.counsel_telephone}}</td>
+                        <td>{{instance.adjourn_date}}</td>
+                        <td>{{instance.reason_for_adjournment}}</td>
+                        <td>{{instance.stage_of_proceedings}}</td>
+                        <td>{{instance.is_defendant_in_custody}}</td>
+                        <td>{{instance.has_bail_been_revoked}}</td>
+                        <td>{{instance.disposal}}</td>
+                        <td>{{instance.entry_made_by}}</td>
+                        <td>{{instance.entry_updated_by}}</td>
+                        {% if perms.logbook_app.delete_attorney_model %}
+                        <td><a style="color : red" href="{% url 'logbook_app:delete_info' id=instance.id %}">
+                          <i class="fas fa-trash fa-lg"></i></a></td>
+                        {% else %}
+                        <td><i class="fas fa-trash fa-lg" style="color: grey;"></i></td>
+                        {% endif %}
+                  </tr>
+                </tbody>
+                {% endfor %}
+                
+              </table>
+        </div>             
+    </div>
+
+
+
+{% endblock %}
+
+
+
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
