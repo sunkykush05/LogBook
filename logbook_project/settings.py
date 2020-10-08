@@ -24,9 +24,9 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = 'wc^^05$#(_ag47o^@+xg5)ck8uq2ho_e5xo4**dt&#)5b!(%(n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sunky-logbook.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
